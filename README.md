@@ -1,6 +1,7 @@
 # Project | Game
 
 </br>
+</br>
 
 <img src="img/Star-Wars-Maze-Of-Death.svg" width=50%>
 
