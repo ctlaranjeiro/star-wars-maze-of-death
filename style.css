@@ -43,10 +43,11 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
     filter: invert(1);
-    padding-bottom: 3em;
+    padding-bottom: 5em;
 }
 
 #canvas{
-    border: 1px solid white;
-    
+    border: 2px solid white;
+    outline: none;
+    box-shadow: 0 0 30px white;
 }
