@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-size: 10px;
+}
+
+.container{
+    /* background-color: green; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+#game{
+    /* background-color: red; */
+    width: 50em;
+    height: 60em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#darth-vader{
+    /* background-color: red; */
+    width: 50em;
+    height: 59.2em;
+    margin: auto;
+    background-image: url("img/Darth\ Vader\ Helmet.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#star-wars-logo{
+    /* background-color:red; */
+    width: 45em;
+    height: 7.5em;
+    background-image: url("img/Star-Wars-Maze-Of-Death.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: invert(1);
+    padding-bottom: 3em;
+}
+
+#canvas{
+    border: 1px solid white;
+    
+}
