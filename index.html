@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="style.css"/>
 
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     
@@ -14,12 +18,22 @@
         <div id="darth-vader"></div>
         <div id= "game">
             <div id="star-wars-logo"></div>
+            <div id="intro-screen">
+                <p>The Galactic Empire ruled for years through fear, intimidation, and tyranny. With a mighty military force including stormtroopers and the planet-destroying Death Star, Emperor Palpatine’s regime seemed unstoppable and permanent. But some dared to strike back…</p>
+                <h2>INSTRUCTIONS</h2>
+                <img src="img/arrow-keys.svg" id="arrow-keys" alt="arrow keys">
+                <p>Use the arrow keys to move.</p>
+                <p class="p-shrink">Your goal is to fight Darth Vader, but before you reach him, </br> you must save every <span>Wookiee</span> and avoid <span>Stormtroopers</span>, or you will die.</p>
+                <button id="start-game">START GAME</button>
+            </div>
             <canvas id="canvas" width="600" height="450"></canvas>
         </div>
     </div>
     
 
     <!-- SCRIPTS GO HERE -->
+    <script src="JS/maze.js"></script>
+    <script src="JS/game.js"></script>
     <script src="JS/main.js"></script>
 </body>
 </html>

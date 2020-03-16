@@ -3,6 +3,7 @@ body{
     padding: 0;
     background-color: black;
     font-size: 10px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .container{
@@ -23,6 +24,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 #darth-vader{
@@ -46,8 +48,72 @@ body{
     padding-bottom: 5em;
 }
 
+#intro-screen{
+    background-color: #111;
+    position: absolute;
+    width: 600px;
+    height: 450px;
+    margin-top: 6.2em;
+    padding: 3em 2em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+#intro-screen button{
+    width: 10em;
+    height: 3em;
+    align-self: center;
+    margin-top: 3em;
+    background-color: Transparent;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    box-shadow: 0 0 20px red;
+    transition: width 0.5s, font-weight 0.3s;
+}
+#intro-screen button:hover{
+    box-shadow: 0 0 20px #1febfd;
+    cursor: pointer;
+    width: 40em;
+    font-weight: bold;
+}
+#intro-screen p{
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 1.8em;
+    margin: 0;
+}
+#intro-screen h2{
+    align-self: center;
+    letter-spacing: 1.2em;
+    padding: 1.5em 0 1em 0;
+    /* text-shadow: 0 0 20px red; */
+}
+
+.p-shrink{
+    width: 450px;
+    align-self: center;
+    padding-top: 1em;
+}
+
+span{
+    font-weight: bold;
+}
+
+#arrow-keys{
+    width: 10em;
+    height: 8em;
+    filter: invert(1);
+    align-self: center;
+}
+
 #canvas{
     border: 2px solid white;
     outline: none;
     box-shadow: 0 0 30px white;
+}
+
+#out{
+    color: white;
 }
