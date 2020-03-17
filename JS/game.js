@@ -15,11 +15,12 @@ class Game{
 
     start(){
         document.getElementById("intro-screen").style.visibility = "hidden";
+        this.maze.draw();
         this.animation();
     }
 
     draw(){
-        this.maze.draw();
+        
     }
     
     update(){

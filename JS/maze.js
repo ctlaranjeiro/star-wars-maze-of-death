@@ -22,17 +22,22 @@ class Maze{
 
         for (let j = 0; j < this.rows; j++){
             for (let i = 0; i < this.cols; i++){
-                let cell = new Cell (i,j);
+                let cell = new Cell (this,i,j);
                 this.grid.push(cell);
+                //console.log(cell);
+                //console.log("i:", i,"j:",j);
             }
         }
+        //console.log(this.grid);
     }
 
     draw(){
         // console.log("Maze and Game are linked");
         // this.cell.show();
         this.setup();
-        console.log(this.grid);
+        for (let i = 0; i < this.grid.length; i++){
+            this.grid[i].show();
+        }
     }
 
     index(){
