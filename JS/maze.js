@@ -10,10 +10,15 @@ class Maze{
         //linking the Cell inside the Maze
         this.cell = new Cell(this);
 
+        //cell width and height
         this.cellWidth = this.cell.width;
         this.cellHeight = this.cell.height;
 
+        //array grid
         this.grid = [];
+
+        //current cell
+        this.current;
     }
 
     setup(){
@@ -29,6 +34,18 @@ class Maze{
             }
         }
         //console.log(this.grid);
+
+        this.current = this.grid[0]; //set's the start location of the maze
+        this.current.visited = true;
+
+        for (let i = 0; i < this.grid.length; i++){
+            let next = this.current.checkNeighbors();
+
+            if (next){ // if next is not undefined (set in maze-cell - random neighbor)
+                next.visited = true;
+                this.current = next;
+            }
+        }
     }
 
     draw(){
@@ -40,8 +57,12 @@ class Maze{
         }
     }
 
-    index(){
+    index(i, j){
+        if (i < 0 || j < 0 || i > this.cols-1 || j > this.rows-1){
+            return -1;
+        }
 
+        return i + j * this.cols;
     }
 
     removeWalls(a,b){
