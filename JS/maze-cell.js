@@ -10,8 +10,8 @@ class Cell{
         this.rows = maze.rows;
         
         // cell size
-        this.width = 60;
-        this.height = 45;
+        this.width = 60; //40
+        this.height = 45; //25
         
         // cell location on column and row
         this.i = i; //column number
@@ -74,7 +74,10 @@ class Cell{
 
     //optional - just highlights the current cell
     highlight(){
-
+        this.context.save();
+        this.context.fillStyle = "orange";
+        this.context.fillRect(this.x,this.y,this.width, this.height);
+        this.context.restore();
     }
 
     show(){

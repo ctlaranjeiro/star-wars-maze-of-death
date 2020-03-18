@@ -37,12 +37,14 @@ class Maze{
 
         this.current = this.grid[0]; //set's the start location of the maze
         this.current.visited = true;
+        
 
         for (let i = 0; i < this.grid.length; i++){
             let next = this.current.checkNeighbors();
 
             if (next){ // if next is not undefined (set in maze-cell - random neighbor)
                 next.visited = true;
+                this.removeWalls(this.current, next);
                 this.current = next;
             }
         }
@@ -55,6 +57,8 @@ class Maze{
         for (let i = 0; i < this.grid.length; i++){
             this.grid[i].show();
         }
+        
+        this.current.highlight();
     }
 
     index(i, j){
@@ -66,6 +70,25 @@ class Maze{
     }
 
     removeWalls(a,b){
+        
+        let x = a.i - b.i;
 
+        if (x === 1){
+            a.walls[3] = false;
+            b.walls[1] = false;
+        } else if (x === -1){
+            a.walls[1] = false;
+            b.walls[3] = false;
+        }
+
+        let y = a.j - b.j;
+
+        if (y === 1){
+            a.walls[0] = false;
+            b.walls[2] = false;
+        } else if (y === -1){
+            a.walls[2] = false;
+            b.walls[0] = false;
+        }
     }
 }
