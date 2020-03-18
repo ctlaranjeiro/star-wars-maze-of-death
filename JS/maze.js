@@ -19,9 +19,13 @@ class Maze{
 
         //current cell
         this.current;
+
+        //stack
+        this.stack = [];
     }
 
     setup(){
+
         this.cols = Math.floor(this.width / this.cellWidth);
         this.rows = Math.floor(this.height / this.cellHeight);
 
@@ -44,10 +48,16 @@ class Maze{
 
             if (next){ // if next is not undefined (set in maze-cell - random neighbor)
                 next.visited = true;
+                this.stack.push(this.current);                
                 this.removeWalls(this.current, next);
                 this.current = next;
+            } else if (this.stack.length > 0){
+                this.current = this.stack.pop(); 
             }
+            console.log(this.stack);
         }
+
+        //console.log(this.stack);
     }
 
     draw(){

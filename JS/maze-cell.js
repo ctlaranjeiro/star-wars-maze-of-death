@@ -63,7 +63,6 @@ class Cell{
 
         //Random neighboor
         if (this.neighbors.length > 0){
-            
             let random = Math.floor(Math.random() * this.neighbors.length);
             return this.neighbors[random];
         }else {
