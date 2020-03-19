@@ -5,8 +5,9 @@ class Game{
         this.width = canvas.width;
         this.height = canvas.height;
 
-        //linking the Game inside the Maze
+        //linking the Game inside other classes
         this.maze = new Maze(this);
+        this.player = new Player (this);
 
         //animation
         this.animationId;
@@ -21,7 +22,7 @@ class Game{
     }
 
     draw(){
-        
+        this.player.draw();        
     }
     
     update(){

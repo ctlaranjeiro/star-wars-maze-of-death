@@ -7,7 +7,7 @@ class Maze{
         this.cols = 0;
         this.rows = 0;
 
-        //linking the Cell inside the Maze
+        //linking the Maze inside other classes
         this.cell = new Cell(this);
 
         //cell width and height
@@ -42,22 +42,24 @@ class Maze{
         this.current = this.grid[0]; //set's the start location of the maze
         this.current.visited = true;
         
+        
 
         for (let i = 0; i < this.grid.length; i++){
             let next = this.current.checkNeighbors();
 
             if (next){ // if next is not undefined (set in maze-cell - random neighbor)
                 next.visited = true;
-                this.stack.push(this.current);                
+                this.stack.push(this.current); 
+                //console.log(this.stack);               
                 this.removeWalls(this.current, next);
                 this.current = next;
             } else if (this.stack.length > 0){
                 this.current = this.stack.pop(); 
             }
-            console.log(this.stack);
         }
-
         //console.log(this.stack);
+
+        //console.log(this.current);
     }
 
     draw(){
