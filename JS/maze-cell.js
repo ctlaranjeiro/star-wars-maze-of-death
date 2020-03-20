@@ -10,8 +10,8 @@ class Cell{
         this.rows = maze.rows;
         
         // cell size
-        this.width = 60; //40
-        this.height = 45; //25
+        this.width = 40; //40
+        this.height = 25; //25
         
         // cell location on column and row
         this.i = i; //column number
@@ -28,11 +28,14 @@ class Cell{
         this.visited = false;
 
         // neighbors
-        this.neighbors = [];
+        //this.neighbors = [];
 
     }
 
     checkNeighbors(){
+
+        let neighbors = [];
+
         let top = this.grid[this.index(this.i, this.j-1)];
         let right = this.grid[this.index(this.i+1, this.j)];
         let bottom = this.grid[this.index(this.i, this.j+1)];
@@ -41,20 +44,21 @@ class Cell{
         
 
 
-        if (top && !top.visited) { // as long as top exists and it hasn't been visited, push it to the neighbors array
-            this.neighbors.push(top);
+        if (top && !top.visited) { 
+            // as long as top exists and it hasn't been visited, push it to the neighbors array
+            neighbors.push(top);
         }
 
         if (right && !right.visited) {
-            this.neighbors.push(right);
+            neighbors.push(right);
         }
 
         if (bottom && !bottom.visited) {
-            this.neighbors.push(bottom);
+            neighbors.push(bottom);
         }
 
         if (left && !left.visited) {
-            this.neighbors.push(left);
+            neighbors.push(left);
         }
 
         //console.log("top:", top, "right:", right,"bottom:", bottom,"left:", left);
@@ -62,9 +66,9 @@ class Cell{
         
 
         //Random neighboor
-        if (this.neighbors.length > 0){
-            let random = Math.floor(Math.random() * this.neighbors.length);
-            return this.neighbors[random];
+        if (neighbors.length > 0){
+            let random = Math.floor(Math.random() * neighbors.length);
+            return neighbors[random];
         }else {
             return undefined;
         }
@@ -85,9 +89,9 @@ class Cell{
 
         this.context.save();
 
-        // this.context.shadowBlur = 10;
-        // this.context.shadowColor = "white";
-        // this.context.lineWidth = 2;
+        //this.context.shadowBlur = 2;
+        //this.context.shadowColor = "white";
+        this.context.lineWidth = 2;
         this.context.strokeStyle = "white";
 
         // TOP wall
@@ -128,12 +132,13 @@ class Cell{
 
         this.context.restore();
 
-        if(this.visited){
-            this.context.save();
-            this.context.fillStyle = "#1febfd";
-            this.context.fillRect(this.x,this.y,this.width, this.height);
-            this.context.restore();
-            //console.log("visited");
-        }
+        //---- CHECK WITH COLOR IF ALL CELLS HAVE BEEN VISITED
+        // if(this.visited){
+        //     this.context.save();
+        //     this.context.fillStyle = "#1febfd";
+        //     this.context.fillRect(this.x,this.y,this.width, this.height);
+        //     this.context.restore();
+        //     //console.log("visited");
+        // }
     }
 }

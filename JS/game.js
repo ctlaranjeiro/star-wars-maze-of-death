@@ -7,7 +7,8 @@ class Game{
 
         //linking the Game inside other classes
         this.maze = new Maze(this);
-        this.player = new Player (this);
+        this.player = new Player (this.maze);
+        this.player.setControls();
 
         //animation
         this.animationId;
@@ -17,16 +18,21 @@ class Game{
     start(){
         document.getElementById("intro-screen").style.visibility = "hidden";
         
-        this.maze.draw();
+        this.maze.setup();
         this.animation();
+        
     }
 
     draw(){
-        this.player.draw();        
+        this.context.clearRect(0, 0, this.width, this.height);
+        this.player.draw();  
+        this.maze.draw();
     }
     
     update(){
         this.frame++;
+        this.player.update();
+        
     }
 
     animation(){

@@ -40,32 +40,45 @@ class Maze{
         //console.log(this.grid);
 
         this.current = this.grid[0]; //set's the start location of the maze
-        this.current.visited = true;
         
-        
+        // this function checks weather or not tehre are any
+        // cells in the grid that are not visited :
+        // visitedRemaining = this.grid.filter(cells => !cells.visited).length;
+        // if the result is greater than 0 and tehrefore tehre are
+        // still unvisited cells, the loop will continue.
+        // othrwise the loop will break
 
-        for (let i = 0; i < this.grid.length; i++){
+        while (this.grid.filter(cells => !cells.visited).length > 0) {
+            //   console.log(
+            //     this.grid.filter(cells => !cells.visited).length,
+            //     "unvisited cells left"
+            //   );
+            this.current.visited = true;
             let next = this.current.checkNeighbors();
-
-            if (next){ // if next is not undefined (set in maze-cell - random neighbor)
+            if (next) {
                 next.visited = true;
-                this.stack.push(this.current); 
-                //console.log(this.stack);               
+                this.stack.push(this.current);
                 this.removeWalls(this.current, next);
                 this.current = next;
-            } else if (this.stack.length > 0){
-                this.current = this.stack.pop(); 
+            } else if (this.stack.length > 0) {
+                this.current = this.stack.pop();
+                //console.log("Current after stack.pop ", this.current);
+            }
+
+            //if no unvisited cells left
+            if (!this.grid.filter(cells => !cells.visited).length) {
+                //console.log("Maze Done! (no unvisited cells left)");
+                this.current.end = true;
+                //console.log(this.current);
+                break;
             }
         }
-        //console.log(this.stack);
-
-        //console.log(this.current);
     }
 
     draw(){
         // console.log("Maze and Game are linked");
         // this.cell.show();
-        this.setup();
+
         for (let i = 0; i < this.grid.length; i++){
             this.grid[i].show();
         }
