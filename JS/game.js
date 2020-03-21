@@ -20,7 +20,6 @@ class Game{
         
         this.maze.setup();
         this.animation();
-        
     }
 
     draw(){
@@ -32,7 +31,6 @@ class Game{
     update(){
         this.frame++;
         this.player.update();
-        
     }
 
     animation(){

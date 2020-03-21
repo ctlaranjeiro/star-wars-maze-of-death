@@ -4,15 +4,15 @@ class Maze{
         this.width = game.width;
         this.height = game.height;
 
-        this.cols = 0;
-        this.rows = 0;
-
         //linking the Maze inside other classes
         this.cell = new Cell(this);
 
         //cell width and height
         this.cellWidth = this.cell.width;
         this.cellHeight = this.cell.height;
+
+        this.cols = Math.floor(this.width / this.cellWidth);
+        this.rows = Math.floor(this.height / this.cellHeight);
 
         //array grid
         this.grid = [];
@@ -25,9 +25,6 @@ class Maze{
     }
 
     setup(){
-
-        this.cols = Math.floor(this.width / this.cellWidth);
-        this.rows = Math.floor(this.height / this.cellHeight);
 
         for (let j = 0; j < this.rows; j++){
             for (let i = 0; i < this.cols; i++){
