@@ -9,12 +9,15 @@ class Player {
         this.cellWidth = maze.cellWidth;
         this.cellHeight = maze.cellHeight;
 
+        //
+        this.grid = maze.grid;
+
         //player size
         this.width = this.cellWidth/1.5;
         this.height = this.cellHeight/1.5;
 
-        this.x = this.cellWidth % this.width/2;
-        this.y = this.cellHeight % this.height/2;
+        this.x = Math.floor(this.cellWidth % this.width/2);
+        this.y = Math.floor(this.cellHeight % this.height/2);
 
         this.speedX = 0;
         this.speedY = 0;
@@ -35,33 +38,57 @@ class Player {
     update(){
         this.x += this.speedX;
         this.y += this.speedY;
+        this.wallCollision();
     }
 
     setControls(){
         window.addEventListener("keydown", event => {
+            event.preventDefault();
             switch(event.keyCode){
 
                 //UP
                 case 38:
-                    this.speedY = -1;
+                    if (this.y < 0){
+                        this.speedY = 0;
+                        console.log("can't leave maze");
+                    } else{
+                        this.speedY = -1;
+                        console.log("Y:", this.y)
+                    }
                     break;
                     
                 //RIGHT
                 case 39: //right key
-                    this.speedX = 1;
+                    if (this.x < this.mazeWidth - this.width){
+                        this.speedX = 1;
+                    } else{
+                        this.speedX = 0;
+                        console.log("can't leave maze");
+                    }
                     break;
                 
                 //DOWN
                 case 40:
-                    this.speedY = 1;
+                    if (this.y < this.mazeHeight - this.height){
+                        this.speedY = 1;
+                    } else{
+                        this.speedY = 0;
+                        console.log("can't leave maze");
+                    }
                     break;
 
                 //LEFT
                 case 37:
-                    this.speedX = -1;
+                    if (this.x >= 0){
+                        this.speedX = -1;
+                    } else{
+                        this.speedX = 0;
+                        console.log("can't leave maze");
+                    }
                     break;
             }
             //console.log(this.speedX, this.speedY);
+            //console.log(this.x, this.y)
         });
 
         window.addEventListener("keyup", event => {
@@ -69,4 +96,31 @@ class Player {
             this.speedY = 0;
         });
     }
+
+    wallCollision(){
+        //console.log(this.grid);
+
+        for (let i = 0; i < this.grid.length; i++){
+            for (let j = 0; j < this.grid.walls; j++){
+                if (this.grid.walls === true){
+                    console.log("found a wall!");
+                }
+            }
+        }
+    }
+
+    // -------
+
+    left() {
+        return this.x;
+      }
+      right() {
+        return this.x + this.width;
+      }
+      top() {
+        return this.y;
+      }
+      bottom() {
+        return this.y + this.height;
+      }
 }
