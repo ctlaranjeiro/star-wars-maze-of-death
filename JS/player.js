@@ -51,12 +51,12 @@ class Player {
                 //UP
                 case 38:
                     if (this.y <= 0){
-                        this.speedY = 0;
+                        //this.y = 0;
                         //this.y = 0;
                         console.log("can't leave maze");
                     } else{
                         //this.wallCollision();
-                        this.speedY = -this.height;
+                        this.y -=this.height;
                         console.log("Y:", this.y);
                     }
                     break;
@@ -76,11 +76,11 @@ class Player {
                 //DOWN
                 case 40:
                     if (this.y > this.mazeHeight - this.height){
-                        this.speedY = 0;
+                        this.y = 0;
                         //this.y = this.mazeHeight - this.height;
                         console.log("can't leave maze");
                     } else{
-                        this.speedY = this.height;
+                        this.y += this.height;
                         console.log("Y:", this.y);
                     }
                     break;
