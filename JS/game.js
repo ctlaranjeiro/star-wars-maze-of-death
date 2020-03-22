@@ -19,6 +19,8 @@ class Game{
         document.getElementById("intro-screen").style.visibility = "hidden";
         
         this.maze.setup();
+        this.player.currentPlayerCell();
+        //this.player.checkWallsCollision("start");
         this.animation();
     }
 

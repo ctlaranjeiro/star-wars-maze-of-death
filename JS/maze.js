@@ -37,6 +37,7 @@ class Maze{
         //console.log(this.grid);
 
         this.current = this.grid[0]; //set's the start location of the maze
+        //console.log(this.current);
         
         // this function checks weather or not tehre are any
         // cells in the grid that are not visited :
