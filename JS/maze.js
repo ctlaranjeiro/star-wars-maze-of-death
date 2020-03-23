@@ -22,6 +22,9 @@ class Maze{
 
         //stack
         this.stack = [];
+
+        //randomCell
+        this.randomCell;
     }
 
     setup(){
@@ -95,6 +98,7 @@ class Maze{
     removeWalls(a,b){
         
         let x = a.i - b.i;
+        let y = a.j - b.j;
 
         if (x === 1){
             a.walls[3] = false;
@@ -103,8 +107,6 @@ class Maze{
             a.walls[1] = false;
             b.walls[3] = false;
         }
-
-        let y = a.j - b.j;
 
         if (y === 1){
             a.walls[0] = false;
