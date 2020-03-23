@@ -84,7 +84,7 @@ class Maze{
             this.grid[i].show();
         }
         
-        this.current.highlight();
+        //this.current.highlight();
     }
 
     index(i, j){

@@ -76,12 +76,12 @@ class Cell{
     }
 
     //optional - just highlights the current cell
-    highlight(){
-        this.context.save();
-        this.context.fillStyle = "orange";
-        this.context.fillRect(this.x,this.y,this.width, this.height);
-        this.context.restore();
-    }
+    // highlight(){
+    //     this.context.save();
+    //     this.context.fillStyle = "orange";
+    //     this.context.fillRect(this.x,this.y,this.width, this.height);
+    //     this.context.restore();
+    // }
 
     show(){
         //console.log("maze-cell is connected to Maze")
