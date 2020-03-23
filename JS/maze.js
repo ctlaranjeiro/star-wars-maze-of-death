@@ -116,4 +116,16 @@ class Maze{
             b.walls[0] = false;
         }
     }
+
+    // reset(){
+    //     this.cell = new Cell(this);
+    //     this.cellWidth = this.cell.width;
+    //     this.cellHeight = this.cell.height;
+    //     this.cols = Math.floor(this.width / this.cellWidth);
+    //     this.rows = Math.floor(this.height / this.cellHeight);
+    //     this.grid = [];
+    //     this.current;
+    //     this.stack = [];
+    //     this.randomCell;
+    // }
 }

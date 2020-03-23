@@ -10,7 +10,7 @@ class Game {
         this.player = new Player(this.maze);
         this.player.setControls();
         this.boss = new Boss(this.maze);
-        this.collect = new Collect(this.maze);
+        //this.collect = new Collect(this.maze);
 
         //random collectables
         this.collectables = [];
@@ -21,7 +21,10 @@ class Game {
     }
 
     start() {
+
         document.getElementById("intro-screen").style.visibility = "hidden";
+        //document.querySelector(".win").style.visibility = "visible";
+        //document.querySelector(".game-over").style.visibility = "visible";
 
         this.maze.setup();
         this.boss.endCell();
@@ -70,7 +73,7 @@ class Game {
             }
         }
 
-        this.gameWin();
+        this.gameResult();
     }
 
     animation() {
@@ -82,11 +85,26 @@ class Game {
         this.update();
     }
 
-    gameWin() {
+    gameResult() {
         if (this.player.i === this.boss.i && this.player.j === this.boss.j) {
-            console.log("You won!");
+            if(this.collectables.length <= 0){
+                console.log("You won!");
+                document.querySelector(".win").style.visibility = "visible";
+            } else{
+                console.log("GAME OVER!");
+                document.querySelector(".game-over").style.visibility = "visible";
+            }
             window.cancelAnimationFrame(this.animationId);
         }
+    }
+
+    reset(){
+        // this.maze = new Maze(this);
+        // this.player = new Player(this.maze);
+        // this.player.setControls();
+        // this.boss = new Boss(this.maze);
+        // this.collectables = [];
+        // this.frame = 0;
     }
 
 }

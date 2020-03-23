@@ -177,5 +177,9 @@ class Player {
       this.left() > obstacle.right()
     );
   }
+  
+  // reset(){
+  //   this.currentPlayer = this.currentPlayerCell();
+  // }
 
 }

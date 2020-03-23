@@ -117,3 +117,95 @@ span{
 #out{
     color: white;
 }
+
+.end-game{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    width: 600px;
+    height: 450px;
+    margin-top: 6.2em;
+    padding: 3em 2em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    visibility: hidden;
+}
+
+.win h1{
+    font-size: 5em;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    text-shadow: 0 0 20px #1febfd;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.win p{
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    padding: 0;
+    margin: 0;
+}
+
+.game-over h1{
+    font-size: 5em;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    text-shadow: 0 0 20px red;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.game-over p{
+    width: 23em;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+    margin: 0;
+}
+
+.play-again{
+    width: 10em;
+    height: 3em;
+    align-self: center;
+    margin-top: 3em;
+    background-color: Transparent;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    transition: width 0.5s, font-weight 0.3s;
+}
+
+.red{
+    box-shadow: 0 0 20px red;
+}
+
+.red:hover{
+    box-shadow: 0 0 20px red;
+    cursor: pointer;
+    width: 40em;
+    font-weight: bold;
+}
+
+.blue{
+    box-shadow: 0 0 20px #1febfd;
+}
+
+.blue:hover{
+    box-shadow: 0 0 20px #1febfd;
+    cursor: pointer;
+    width: 40em;
+    font-weight: bold;
+}
+
+.span-play-again{
+    color: rgba(255,255,255,0.5);
+    margin-top: 3em;
+    letter-spacing: 0.2em;
+}
