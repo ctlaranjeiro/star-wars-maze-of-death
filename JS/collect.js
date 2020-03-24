@@ -33,7 +33,7 @@ class Collect {
         this.endCell;
 
         this.image = new Image();
-        this.image.src = "/img/Chewbacca head.png";
+        this.image.src = "/img/Chewbacca.png";
     }
 
     draw() {

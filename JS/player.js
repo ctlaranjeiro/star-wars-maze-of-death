@@ -24,7 +24,7 @@ class Player {
     this.j = 0; //rows
 
     this.image = new Image();
-    this.image.src = "/img/Skywalker.png";
+    this.image.src = "/img/Luke-Skywalker.png";
 
     this.currentPlayer = this.currentPlayerCell();
 

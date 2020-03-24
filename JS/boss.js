@@ -24,7 +24,7 @@ class Boss {
         this.j = 0; //rows
 
         this.image = new Image();
-        this.image.src = "/img/Darth Vader end cell.png";
+        this.image.src = "/img/Darth-Vader-End.png";
 
         this.bossLocation;
     }
