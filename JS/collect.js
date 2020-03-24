@@ -31,18 +31,23 @@ class Collect {
         this.current;
 
         this.endCell;
+
+        this.image = new Image();
+        this.image.src = "/img/Chewbacca head.png";
     }
 
     draw() {
         //this.setRandomPosition();
 
         //-------COLLECT GREEN RECTANGLE
-        this.context.save();
-        this.context.fillStyle = "green";
-        this.context.fillRect(this.x, this.y, this.width, this.height);
-        this.context.restore();
+        // this.context.save();
+        // this.context.fillStyle = "green";
+        // this.context.fillRect(this.x, this.y, this.width, this.height);
+        // this.context.restore();
 
         //console.log("collect drawn");
+
+        this.context.drawImage(this.image,this.x, this.y, this.width, this.height);
     }
 
     setRandomPosition() {

@@ -23,16 +23,21 @@ class Boss {
         this.i = 0; //cols
         this.j = 0; //rows
 
+        this.image = new Image();
+        this.image.src = "/img/Darth Vader end cell.png";
+
         this.bossLocation;
     }
 
     draw() {
         //-------BOSS RED RECTANGLE
-        this.context.save();
-        this.context.fillStyle = "red";
-        this.context.fillRect(this.x, this.y, this.width, this.height);
-        this.context.restore();
+        // this.context.save();
+        // this.context.fillStyle = "red";
+        // this.context.fillRect(this.x, this.y, this.width, this.height);
+        // this.context.restore();
         //end of test
+    
+        this.context.drawImage(this.image, this.x, this.y, this.width, this.height);
       }
 
     endCell(){

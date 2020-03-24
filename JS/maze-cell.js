@@ -10,8 +10,8 @@ class Cell{
         this.rows = maze.rows;
         
         // cell size
-        this.width = 60; // ---- LEVEL 1 - 60 | LEVEL 2 - 50 | LEVEL 3 - 40
-        this.height = 45; //---- LEVEL 1 - 45 | LEVEL 2 - 35 | LEVEL 3 - 25
+        this.width = this.mazeWidth/10; // ---- LEVEL 1 - 60 | LEVEL 2 - 50 | LEVEL 3 - 40
+        this.height = this.mazeHeight/10; //---- LEVEL 1 - 45 | LEVEL 2 - 35 | LEVEL 3 - 25
         
         // cell location on column and row
         this.i = i; //column number
