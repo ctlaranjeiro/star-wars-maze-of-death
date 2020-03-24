@@ -1,4 +1,4 @@
-class Collect {
+class Enemy {
     constructor(maze) {
         this.context = maze.context;
 
@@ -17,11 +17,11 @@ class Collect {
         this.cols = maze.cols;
         this.rows = maze.rows;
 
-        //collect size
+        //enemy size
         this.width = this.cellWidth / 2;
         this.height = this.cellHeight / 2;
 
-        //collect coordinates
+        //enemy coordinates
         this.x = 0;
         this.y = 0;
 
@@ -33,21 +33,22 @@ class Collect {
         this.endCell;
 
         this.image = new Image();
-        this.image.src = "/img/Chewbacca.png";
+        this.image.src = "/img/Stormtrooper.png";
+
     }
 
     draw() {
         //this.setRandomPosition();
 
-        //-------COLLECT GREEN RECTANGLE
+        //-------ENEMY YELLOW RECTANGLE
         // this.context.save();
-        // this.context.fillStyle = "green";
+        // this.context.fillStyle = "yellow";
         // this.context.fillRect(this.x, this.y, this.width, this.height);
-        this.context.restore();
+        // this.context.restore();
 
-        //console.log("collect drawn");
+        //console.log("enemy drawn");
 
-        this.context.drawImage(this.image,this.x, this.y, this.width, this.height);
+        this.context.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 
     setRandomPosition() {
@@ -57,7 +58,14 @@ class Collect {
         this.j = Math.floor(Math.random() * this.rows);
         //console.log("this.i:", this.i, "this.j:", this.j);
 
-        //------- exclude random number of i and j if they're equal to the end cell location
+        //console.log("initial i:", this.i);
+
+        if (this.i === 0 && this.j === 0) {
+            this.i += 1;
+            //console.log("i after 0 removed:", this.i);
+        }
+
+        //------- exclude random number of i and j if they're equal to the end cell location or start location
         this.endCell = this.grid.filter(cells => cells.end === true);
         //console.log(this.endCell[0].i);
 
@@ -73,9 +81,33 @@ class Collect {
         //------- END of exclusion
 
         this.current = this.grid.filter(cells => cells.i === this.i && cells.j === this.j);
-        //console.log("Collect this.current:", this.current);
+        //console.log("Enemy this.current:", this.current);
 
-        this.x = this.current[0].x;
-        this.y = this.current[0].y;
+        // this.x = this.current[0].x;
+        // this.y = this.current[0].y;
+
+        this.x = this.current[0].x + this.width;
+        this.y = this.current[0].y + this.height;
+    }
+
+    addMovement(direction) {
+        switch (direction) {
+
+            case "up":
+                this.y -= this.height;
+                break;
+
+            case "right":
+                this.x += this.width;
+                break;
+
+            case "down":
+                this.y += this.height;
+                break;
+
+            case "left":
+                this.x -= this.width;
+                break;
+        }
     }
 }
