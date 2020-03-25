@@ -108,6 +108,10 @@ class Enemy {
             case "left":
                 this.x -= this.width;
                 break;
+
+            case "clean":
+                this.x = 0;
+                this.y = 0;
         }
     }
 }

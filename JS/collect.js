@@ -76,11 +76,11 @@ class Collect {
 
         this.current = this.grid.filter(cells => cells.i === this.i && cells.j === this.j);
         //console.log("Collect this.current:", this.current);
-        console.log("Collect this.current i:", this.current[0].i, "j:", this.current[0].j)
+        //console.log("Collect this.current i:", this.current[0].i, "j:", this.current[0].j)
 
         this.x = this.current[0].x;
         this.y = this.current[0].y;
 
-        console.log("Collect x:", this.x, "y:", this.y);
+        //console.log("Collect x:", this.x, "y:", this.y);
     }
 }
