@@ -34,6 +34,8 @@ class Game {
         document.getElementById("saved").innerHTML = `WOOKIEES SAVED: ${this.saved}/${this.maxNumberCollect}`;
         //document.querySelector(".win").style.visibility = "visible";
         //document.querySelector(".game-over").style.visibility = "visible";
+        
+        
 
         this.maze.setup();
         this.boss.endCell();
@@ -46,7 +48,8 @@ class Game {
                 this.collectables[i].setRandomPosition();
                 if(i % 2 === 0){
                     this.collectables[i].x += this.collectables[i].width;
-                }else if(i % 3 === 0){
+                }
+                else if(i % 3 === 0){
                     this.collectables[i].y += this.collectables[i].height;
                 }
             }

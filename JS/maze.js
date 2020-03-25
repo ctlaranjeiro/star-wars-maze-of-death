@@ -81,7 +81,7 @@ class Maze{
         // this.cell.show();
 
         for (let i = 0; i < this.grid.length; i++){
-            this.grid[i].show();
+            this.grid[i].draw();
         }
         
         //this.current.highlight();

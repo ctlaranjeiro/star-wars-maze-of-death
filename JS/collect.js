@@ -65,7 +65,9 @@ class Collect {
 
         if (this.i === this.endCell[0].i && this.j === this.endCell[0].j) {
             if (this.i === 0) {
+                //console.log("EndCell is i: 0");
                 this.i += 1;
+                //console.log("now this.i is", this.i);
             } else {
                 this.i -= 1;
             }
@@ -74,8 +76,11 @@ class Collect {
 
         this.current = this.grid.filter(cells => cells.i === this.i && cells.j === this.j);
         //console.log("Collect this.current:", this.current);
+        console.log("Collect this.current i:", this.current[0].i, "j:", this.current[0].j)
 
         this.x = this.current[0].x;
         this.y = this.current[0].y;
+
+        console.log("Collect x:", this.x, "y:", this.y);
     }
 }

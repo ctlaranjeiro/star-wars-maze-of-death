@@ -10,8 +10,8 @@ class Cell{
         this.rows = maze.rows;
         
         // cell size
-        this.width = this.mazeWidth/10; // ---- LEVEL 1 - 60 | LEVEL 2 - 50 | LEVEL 3 - 40
-        this.height = this.mazeHeight/10; //---- LEVEL 1 - 45 | LEVEL 2 - 35 | LEVEL 3 - 25
+        this.width = this.mazeWidth / 10; // ---- EASY - /10 | MEDIUM - /12 | HARD - /15
+        this.height = this.mazeHeight / 10; //---- EASY - /10 | MEDIUM - /12 | HARD - /15
         
         // cell location on column and row
         this.i = i; //column number
@@ -83,7 +83,7 @@ class Cell{
     //     this.context.restore();
     // }
 
-    show(){
+    draw(){
         //console.log("maze-cell is connected to Maze")
         //console.log("x:", x, "y:", y);
 
@@ -131,6 +131,8 @@ class Cell{
         }
 
         this.context.restore();
+
+        //console.log(this.cellSize);
 
         //---- CHECK WITH COLOR IF ALL CELLS HAVE BEEN VISITED
         // if(this.visited){
