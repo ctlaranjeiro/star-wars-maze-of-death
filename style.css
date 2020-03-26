@@ -60,7 +60,7 @@ body{
     flex-direction: column;
     color: white;
 }
-#intro-screen button{
+/* #intro-screen button{
     width: 10em;
     height: 3em;
     align-self: center;
@@ -76,6 +76,31 @@ body{
     box-shadow: 0 0 20px #1febfd;
     cursor: pointer;
     width: 40em;
+    font-weight: bold;
+} */
+
+#start-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.start-game {
+    width: 10em;
+    height: 3em;
+    align-self: center;
+    margin-top: 3em;
+    background-color: Transparent;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    box-shadow: 0 0 20px red;
+    transition: width 0.5s, font-weight 0.3s;
+}
+
+.start-game:hover {
+    box-shadow: 0 0 20px #1febfd;
+    cursor: pointer;
+    width: 15em;
     font-weight: bold;
 }
 #intro-screen p{
@@ -178,7 +203,7 @@ span{
     font-weight: bold;
 }
 
-.play-again{
+.main-page{
     width: 10em;
     height: 3em;
     align-self: center;
@@ -203,6 +228,7 @@ span{
 
 .blue{
     box-shadow: 0 0 20px #1febfd;
+    Width: 17em;
 }
 
 .blue:hover{

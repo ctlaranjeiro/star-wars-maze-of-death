@@ -14,12 +14,12 @@ class Game {
         //this.collect = new Collect(this.maze);
 
         //random collectables
-        this.maxNumberCollect = 10;
+        this.maxNumCollect = 0;
         this.collectables = [];
         this.saved = 0;
 
         //random enemies
-        this.maxNumEnemies = 10;
+        this.maxNumEnemies = 0;
         this.enemies = [];
 
         //animation
@@ -29,27 +29,28 @@ class Game {
         this.intervalID;
     }
 
-    start() {
+    start(numCollectables, numEnemies) {
+
+        this.maxNumCollect = numCollectables;
+        this.maxNumEnemies = numEnemies;
 
         document.getElementById("intro-screen").style.visibility = "hidden";
         document.getElementById("score").style.visibility = "visible";
-        document.getElementById("saved").innerHTML = `WOOKIEES SAVED: ${this.saved}/${this.maxNumberCollect}`;
+        document.getElementById("saved").innerHTML = `WOOKIEES SAVED: ${this.saved}/${this.maxNumCollect}`;
         //document.querySelector(".win").style.visibility = "visible";
         //document.querySelector(".game-over").style.visibility = "visible";
-
-        console.log("GameOn: ", this.gameOn);
 
 
         this.maze.setup();
         this.boss.endCell();
         this.player.currentPlayerCell();
 
-        while (this.collectables.length < this.maxNumberCollect) {
+        while (this.collectables.length < this.maxNumCollect) {
             this.collectables.push(new Collect(this.maze));
             for (let i = 0; i < this.collectables.length; i++) {
                 this.collectables[i].setRandomPosition();
                 if (i % 2 === 0) {
-                    console.log("2");
+                    //console.log("2");
                     this.collectables[i].x += this.collectables[i].width;
                 } else if (i % 3 === 0) {
                     this.collectables[i].y += this.collectables[i].height;
@@ -73,7 +74,7 @@ class Game {
         for (let i = 0; i < this.enemies.length; i++) {
 
             if (i % 2 === 0) {
-                this.intervalId = setInterval(() => {
+                setInterval(() => {
                     this.enemies[i].addMovement("left");
                     setTimeout(() => {
                         this.enemies[i].addMovement("up");
@@ -85,33 +86,6 @@ class Game {
                         this.enemies[i].addMovement("down");
                     }, 1500);
                 }, 2000);
-                // }else if(i % 3 === 0){
-                //     setInterval(() => {
-                //         this.enemies[i].addMovement("left");
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("up");
-                //         }, 250);
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("right");
-                //         }, 500);
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("down");
-                //         }, 750);
-                //     }, 1000);
-                // }else if(i % 5 === 0){
-                //     setInterval(() => {
-                //         this.enemies[i].addMovement("up");
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("left");
-                //         }, 250);
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("down");
-                //         }, 500);
-                //         setTimeout(() => {
-                //             this.enemies[i].addMovement("right");
-                //         }, 750);
-                //     }, 1000);
-
             } else {
                 setInterval(() => {
                     this.enemies[i].addMovement("up");
@@ -130,7 +104,6 @@ class Game {
         }
 
         //console.log(this.enemies);
-        console.log("IntervalId: ", this.intervalId);
 
         this.animation();
     }
@@ -169,7 +142,7 @@ class Game {
                 //console.log("Collected!");
                 this.collectables.splice(i, 1);
                 this.saved += 1;
-                document.getElementById("saved").innerHTML = `WOOKIEES SAVED: ${this.saved}/${this.maxNumberCollect}`;
+                document.getElementById("saved").innerHTML = `WOOKIEES SAVED: ${this.saved}/${this.maxNumCollect}`;
 
                 //console.log(this.saved);
             }
@@ -202,7 +175,6 @@ class Game {
                 document.querySelector(".win").style.visibility = "visible";
                 window.cancelAnimationFrame(this.animationId);
             } else {
-                clearInterval(this.intervalId);
                 this.gameOver();
                 document.querySelector("#kill").innerHTML = "Chewbacca didn't agreed to this. </br> You have to save every Wookiee.";
             }
@@ -211,31 +183,31 @@ class Game {
 
     gameOver() {
         console.log("GAME OVER!");
-        console.log(this.intervalId);
         document.querySelector(".game-over").style.visibility = "visible";
         window.cancelAnimationFrame(this.animationId);
     }
 
-    reset() {
-        console.log("Play Again Clicked!");
-        this.maze = new Maze(this);
-        this.player = new Player(this.maze);
-        this.player.setControls();
-        this.boss = new Boss(this.maze);
-        //random collectables
-        this.maxNumberCollect = 10;
-        this.collectables = [];
-        this.saved = 0;
-        //random enemies
-        this.maxNumEnemies = 10;
-        this.enemies = [];
-        //animation
-        this.frame = 0;
+    // reset() {
+    //     console.log("Play Again Clicked!");
+    //     this.maze = new Maze(this);
+    //     this.player = new Player(this.maze);
+    //     this.player.setControls();
+    //     this.boss = new Boss(this.maze);
+    //     //random collectables
+    //     this.maxNumCollect = 10;
+    //     this.collectables = [];
+    //     this.saved = 0;
+    //     //random enemies
+    //     this.maxNumEnemies = 8;
+    //     this.enemies = [];
+    //     //animation
+    //     this.frame = 0;
 
-        document.querySelectorAll(".end-game").forEach(div => {
-            div.style.visibility = "hidden";
-        });
-        this.start();
-    }
+    //     document.querySelectorAll(".end-game").forEach(div => {
+    //         div.style.visibility = "hidden";
+    //     });
+
+    //     this.start();
+    // }
 
 }
