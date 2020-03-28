@@ -5,7 +5,7 @@ window.onload = () => {
     const mainPageButtons = document.querySelectorAll(".main-page");
     
     const lightsaber = new Audio("/sound effect/light-saber.mp3");
-    lightsaber.volume = 0.2;
+    lightsaber.volume = 0.7;
     //lightsaber.src = "/sound effect/light-saber.mp3";
     
     // document.getElementById("start-game").onclick = () => {
